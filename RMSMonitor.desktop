@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=RMSMonitor.desktop
+Type=Application
+Exec=python3 checkStatus.py
+Path=RMSMonitor
+Hidden=false
+NoDisplay=false
+Icon=lxterminal
