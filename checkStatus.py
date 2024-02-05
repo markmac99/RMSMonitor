@@ -1,3 +1,4 @@
+#!/bin/env python3
 # Copyright Mark McIntyre, 2024-
 #
 
