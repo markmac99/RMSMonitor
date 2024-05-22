@@ -9,6 +9,7 @@ import os
 import configparser
 from tkinter import ttk
 import tkinter as tk
+from tkinter import messagebox 
 
 
 def readConfigFile(cfgfile):
@@ -23,14 +24,14 @@ def getURL(camid):
     r = requests.get(baseurl)
     if r.status_code != 200:
         if r.status_code == 404:
-            print(f'data for {camid} not available')
+            messagebox.showwarning(title='Warning', message=f'data for {camid} not available')
         else:
-            print(f'error: {r.status_code}')
+            messagebox.showwarning(title='Warning', message=f'error: {r.status_code}')
         return None
     text = r.text
     rb=text.find('Recording begin: ')
     if rb < 50:
-        print(f'data for {camid} not available')
+        messagebox.showwarning(title='Warning', message=f'data for {camid} not available')
         return None
     rb = rb + len('Recording begin: ')
     lastdt = text[rb:rb+19]
@@ -38,7 +39,6 @@ def getURL(camid):
         dtval = datetime.datetime.strptime(lastdt, '%Y-%m-%d %H:%M:%S')
     except:
         dtval = None
-    #print(f'{camid} last updated at {dtval} UT')
     return dtval
 
 
@@ -48,7 +48,9 @@ if __name__ == '__main__':
     else:
         cfgfile = 'rmsmonitor.ini'
     if not os.path.isfile(cfgfile):
-        print(f'config file {cfgfile} missing')
+        cfgfile = '_internal/rmsmonitor.ini'
+    if not os.path.isfile(cfgfile):
+        messagebox.showerror(title='Error', message=f'config file {cfgfile} missing')
         sys.exit(1)
     camids = readConfigFile(cfgfile)
     camstati = []
@@ -82,7 +84,6 @@ if __name__ == '__main__':
             tags='error'
         else:
             age = nowdt - rw[1]
-            #print(age)
             tags='normal'
             if age > datetime.timedelta(days=3):
                 tags = 'warning'
