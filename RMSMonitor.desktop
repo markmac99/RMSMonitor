@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=RMSMonitor.desktop
 Type=Application
-Exec=python3 checkStatus.py
+Exec=source ~/venvs/vRMSMonitor/bin/activate && python3 checkStatus.py
 Path=RMSMonitor
 Hidden=false
 NoDisplay=false
