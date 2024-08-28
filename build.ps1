@@ -4,4 +4,4 @@ copy-item rmsmonitor.ini.sample dist\checkStatus
 Set-Location dist
 compress-archive -path .\checkStatus\ -destinationpath ..\rmsMonitor.zip -update
 Set-Location ..
-bash -c "tar cvf rmsMonitor.tar *.sh checkStatus.py LICENSE README.md *.sample *.desktop requirements.txt"
+bash -c "tar cvzf rmsMonitor.tgz *.sh checkStatus.py LICENSE README.md *.sample *.desktop requirements.txt"
