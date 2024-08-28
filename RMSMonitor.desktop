@@ -1,8 +1,6 @@
 [Desktop Entry]
-Name=RMSMonitor.desktop
+Name=RMSMonitor
 Type=Application
-Exec=source ~/venvs/vRMSMonitor/bin/activate && python3 checkStatus.py
-Path=RMSMonitor
-Hidden=false
-NoDisplay=false
+Exec=RMSMonitor/RMSMonitor.sh
+Terminal=False
 Icon=lxterminal
