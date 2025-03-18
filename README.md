@@ -3,7 +3,7 @@ Simple desktop app to check the status of one or more RMS meteor cameras
 
 ## Installation
 ### Windows
-* Download the zip file and unpack it into a folder of your choosing. 
+* Download the zip file from [here](https://github.com/markmac99/RMSMonitor/releases) and unpack it into a folder of your choosing. 
 * Rename the sample config file to rmsmonitor.ini, and edit it to contain a comma-separated list of the stations you want to monitor.
 * Create a desktop shortcut pointing to checkStatus.exe.
 
