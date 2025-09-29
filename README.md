@@ -1,5 +1,8 @@
 # RMSMonitor
-Simple desktop app to check the status of one or more RMS meteor cameras
+Simple desktop app to check the status of one or more RMS meteor cameras  
+
+<img width="421" height="188" alt="image" src="https://github.com/user-attachments/assets/ea385570-a7ca-4d2a-a24f-4a7ffaf6686f" />
+
 
 ## Installation
 ### Windows
