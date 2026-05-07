@@ -53,6 +53,7 @@ if __name__ == '__main__':
         messagebox.showerror(title='Error', message=f'config file {cfgfile} missing')
         sys.exit(1)
     camids = readConfigFile(cfgfile)
+    # messagebox.showinfo(title="info", message=camids)
     camstati = []
     for camid in camids:
         camid = camid.strip().upper()
@@ -67,16 +68,17 @@ if __name__ == '__main__':
     style.theme_create("dummy", parent=actualTheme)
     style.theme_use("dummy")
     # create window and table
-    root.geometry('400x150')
-    tree = ttk.Treeview(root, column=("c1", "c2"), show='headings')
+    root.geometry('400x300')
+    tree = ttk.Treeview(root, column=("c1", "c2"), show='headings', height=20)
     tree.column("#1", anchor=tk.CENTER)
     tree.heading("#1", text="Cam ID")
     tree.column("#2", anchor=tk.CENTER)
     tree.heading("#2", text="Last Update")
     # set colour tags
-    tree.tag_configure('warning',foreground='white', background='yellow')
+    tree.tag_configure('warning',foreground='black', background='yellow')
     tree.tag_configure('alert',foreground='white', background='red')
     tree.tag_configure('normal',foreground='black', background='green')
+    tree.tag_configure('error',foreground='black', background='white')
     # get data
     nowdt = datetime.datetime.now()
     for rw in camstati:
@@ -91,6 +93,7 @@ if __name__ == '__main__':
                 tags = 'alert'
                
         tree.insert('', tk.END, values=rw, tags=(tags))
+        # print(f'inserted {rw}')
     # display the matrix
     tree.pack()
     root.mainloop()
